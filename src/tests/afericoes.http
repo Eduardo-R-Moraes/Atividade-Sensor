@@ -1,0 +1,29 @@
+@url = https://spindly-troll-g4x47655j64r2v9pq-8080.app.github.dev/afericoes
+
+GET {{ url }}
+
+###
+GET {{ url }}/1
+
+###
+POST {{ url }}
+Content-Type: application/json
+
+{
+    "idSensor": "DHT11",
+    "unidade": "C°",
+    "valor": "12"
+}
+
+###
+PUT {{ url }}/1
+Content-Type: application/json
+
+{
+    "idSensor": "DHT11",
+    "unidade": "C°",
+    "valor": "12"
+}
+
+###
+DELETE {{ url }}/1
