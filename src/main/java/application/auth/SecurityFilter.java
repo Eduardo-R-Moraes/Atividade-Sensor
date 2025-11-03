@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -40,7 +38,6 @@ public class SecurityFilter extends OncePerRequestFilter {
         String token = this.getToken(request);
 
         if(token != null) {
-            // Realizar a Autenticação
             String subject = tokenService.getSubject(token);
             UserDetails usuario = userDataService.loadUserByUsername(subject);
 
